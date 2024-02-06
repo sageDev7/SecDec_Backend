@@ -14,5 +14,5 @@ import java.util.List;
 public class RolDTO {
     private Integer id_r;
     private String nombre;
-    private List<UsuarioDTO> usuarios = new ArrayList<>();
+    private List<Integer> usuarios = new ArrayList<>();
 }

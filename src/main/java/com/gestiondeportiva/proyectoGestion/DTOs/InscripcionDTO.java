@@ -15,8 +15,10 @@ public class InscripcionDTO {
     private Date fecInsc;
     private Date fecVenc;
     private float importeUnico;
+    private float importeCuotas;
     private TipoInscripcion tipoInscr;
     private Integer alumno;
+    private String alumnoNombre;
     private String disciplinaNombre;
     private Integer disciplina;
     private String usuarioNombre;

@@ -15,9 +15,8 @@ import java.util.List;
 @NoArgsConstructor
 public class UsuarioDTO {
     private Integer id_u;
-
     private String username;
-    private List<PagoDeCuota> pagosDeCuotas = new ArrayList<>();
-    private List<InscripcionDTO> inscripciones = new ArrayList<>();
+    private List<Integer> pagosDeCuotas = new ArrayList<>();
+    private List<Integer> inscripciones = new ArrayList<>();
     private List<RolDTO> roles = new ArrayList<>();
 }

@@ -1,5 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
+import com.gestiondeportiva.proyectoGestion.DTOs.UsuarioDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,19 +25,19 @@ public class ControladorUsuario {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<Usuario> createOrUpdateUsuario(@Valid @RequestBody Usuario usuario) {
-        Usuario nuevoUsuario = servicioUsuario.createOrUpdate(usuario);
+    public ResponseEntity<UsuarioDTO> createOrUpdateUsuario(@Valid @RequestBody UsuarioDTO usuario) {
+        UsuarioDTO nuevoUsuario = servicioUsuario.createOrUpdate(usuario);
         return new ResponseEntity<>(nuevoUsuario, HttpStatus.CREATED);
     }
 
     @GetMapping("/ver")
-    public List<Usuario> getAllUsuarios() {
+    public List<UsuarioDTO> getAllUsuarios() {
         return servicioUsuario.selectAll();
     }
 
     @GetMapping("/verId/{id}")
-    public ResponseEntity<Usuario> getUsuarioById(@PathVariable Integer id) {
-        Usuario usuario = servicioUsuario.selectById(id);
+    public ResponseEntity<UsuarioDTO> getUsuarioById(@PathVariable Integer id) {
+        UsuarioDTO usuario = servicioUsuario.selectById(id);
 
         if (usuario != null) {
             return new ResponseEntity<>(usuario, HttpStatus.OK);

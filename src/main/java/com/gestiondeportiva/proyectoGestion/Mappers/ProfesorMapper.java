@@ -10,9 +10,6 @@ import java.util.List;
 
 public class ProfesorMapper {
 
-    private Integer id_p;
-    private List<DisciplinaDTO> disciplinas;
-
     public static ProfesorDTO entityToDTO(Profesor p) {
         ProfesorDTO pDto = new ProfesorDTO();
         pDto.setNomyApe(p.getNomyApe());

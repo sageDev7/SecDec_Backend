@@ -4,6 +4,8 @@ import com.gestiondeportiva.proyectoGestion.DTOs.CuotaMensualDTO;
 import com.gestiondeportiva.proyectoGestion.DTOs.DisciplinaDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
 
+import java.util.Optional;
+
 public class CuotaMensualMapper {
     private ClaveCuota claveCuota;
     private Integer alumno;
@@ -15,7 +17,9 @@ public class CuotaMensualMapper {
         cmDto.setClaveCuota(cm.getClaveCuota());
         cmDto.setAlumno(cm.getAlumno().getId_a());
         cmDto.setDisciplina(cm.getDisciplina().getId_d());
-        cmDto.setPdc(cm.getPdc());
+        if(cm.getPdc()!=null) {
+            cmDto.setPdc(Optional.ofNullable(PagoDeCuotaMapper.entityToDTO(cm.getPdc())));
+        }
         cmDto.setImporteCuota(cm.getDisciplina().getImporteCuota());
         return cmDto;
     }
@@ -37,8 +41,6 @@ public class CuotaMensualMapper {
             cm.setDisciplina(disciplina);
         }
         */
-
-        cm.setPdc(cmDto.getPdc());
         return cm;
     }
 

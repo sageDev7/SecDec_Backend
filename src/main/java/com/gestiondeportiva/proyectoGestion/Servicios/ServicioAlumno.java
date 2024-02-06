@@ -50,7 +50,7 @@ public class ServicioAlumno {
 
     public List<AlumnoDTO> selectAll() {
         List<AlumnoDTO> laDto = new ArrayList<>();
-        for (Alumno a: alumnoRepositorio.findAllByOrderByNomyApeAsc()) {
+        for (Alumno a: alumnoRepositorio.findAll()) {
             laDto.add(AlumnoMapper.entityToDTO(a));
         }
         return laDto;

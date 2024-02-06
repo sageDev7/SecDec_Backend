@@ -59,38 +59,37 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
-                .requestMatchers(HttpMethod.GET).permitAll()
-                .requestMatchers(HttpMethod.POST).permitAll()
-                .requestMatchers(HttpMethod.DELETE).permitAll()
-                .requestMatchers(HttpMethod.PUT).permitAll()
-                .requestMatchers(HttpMethod.OPTIONS).permitAll()
                 .requestMatchers("/auth/**").permitAll()
 
-/*
-                .requestMatchers(HttpMethod.POST,"/alumnos/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST,"/alumnos/crear").hasAnyAuthority("admin", "cajero")
                 .requestMatchers(HttpMethod.DELETE,"/alumnos/eliminar/**").hasAuthority("admin")
 
-                .requestMatchers(HttpMethod.POST,"/cuotas-mensuales/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/cuotas-mensuales/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST,"/cuotas-mensuales/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE,"/cuotas-mensuales/eliminar/**").hasAnyAuthority("admin", "cajero")
 
                 .requestMatchers(HttpMethod.POST,"/disciplinas/crear").hasAuthority("admin")
                 .requestMatchers(HttpMethod.DELETE,"/disciplinas/eliminar/**").hasAuthority("admin")
 
-                .requestMatchers(HttpMethod.POST,"/inscripciones/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/inscripciones/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST,"/inscripciones/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE,"/inscripciones/eliminar/**").hasAnyAuthority("admin", "cajero")
 
-                .requestMatchers(HttpMethod.POST,"/pagos-de-cuota/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST,"/pagos-de-cuota/crear").hasAnyAuthority("admin", "cajero")
                 .requestMatchers(HttpMethod.DELETE,"/pagos-de-cuota/eliminar/**").hasAuthority("admin")
 
                 .requestMatchers(HttpMethod.POST,"/profesores/crear").hasAuthority("admin")
                 .requestMatchers(HttpMethod.DELETE,"/profesores/eliminar/**").hasAuthority("admin")
 
+                .requestMatchers(HttpMethod.POST,"/usuarios/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.DELETE,"/usuarios/eliminar/**").hasAuthority("admin")
+
                 .requestMatchers(HttpMethod.GET,"/usuarios").hasAuthority("admin")
                 .requestMatchers(HttpMethod.GET,"/usuarios/ver").hasAuthority("admin")
                 .requestMatchers(HttpMethod.GET,"/usuarios/verId/**").hasAuthority("admin")
-                .requestMatchers(HttpMethod.POST,"/usuarios/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/usuarios/eliminar/**").hasAuthority("admin")
-*/
+
+                .requestMatchers(HttpMethod.GET,"/alumnos").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.GET,"/alumnos/ver").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.GET,"/alumnos/verId/**").hasAnyAuthority("admin", "cajero")
+
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();

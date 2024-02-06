@@ -1,5 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
+import com.gestiondeportiva.proyectoGestion.DTOs.PagoDeCuotaDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.PagoDeCuota;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioPagoDeCuota;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,19 +24,19 @@ public class ControladorPagoDeCuota {
     }
 
     @PostMapping("/crear")
-    public ResponseEntity<PagoDeCuota> createOrUpdatePagoDeCuota(@Valid @RequestBody PagoDeCuota pagoDeCuota) {
-        PagoDeCuota nuevoPagoDeCuota = servicioPagoDeCuota.createOrUpdate(pagoDeCuota);
+    public ResponseEntity<PagoDeCuotaDTO> createOrUpdatePagoDeCuota(@Valid @RequestBody PagoDeCuotaDTO pagoDeCuota) {
+        PagoDeCuotaDTO nuevoPagoDeCuota = servicioPagoDeCuota.createOrUpdate(pagoDeCuota);
         return new ResponseEntity<>(nuevoPagoDeCuota, HttpStatus.CREATED);
     }
 
     @GetMapping("/ver")
-    public List<PagoDeCuota> getAllPagosDeCuota() {
+    public List<PagoDeCuotaDTO> getAllPagosDeCuota() {
         return servicioPagoDeCuota.selectAll();
     }
 
     @GetMapping("/verId/{id}")
-    public ResponseEntity<PagoDeCuota> getPagoDeCuotaById(@PathVariable Integer id) {
-        PagoDeCuota pagoDeCuota = servicioPagoDeCuota.selectById(id);
+    public ResponseEntity<PagoDeCuotaDTO> getPagoDeCuotaById(@PathVariable Integer id) {
+        PagoDeCuotaDTO pagoDeCuota = servicioPagoDeCuota.selectById(id);
 
         if (pagoDeCuota != null) {
             return new ResponseEntity<>(pagoDeCuota, HttpStatus.OK);

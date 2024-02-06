@@ -1,14 +1,9 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.DtoAuthRespuesta;
-import com.gestiondeportiva.proyectoGestion.DTOs.DtoLogin;
-import com.gestiondeportiva.proyectoGestion.DTOs.DtoRegistro;
-import com.gestiondeportiva.proyectoGestion.Dominio.Rol;
-import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IRolRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IUsuarioRepositorio;
+import com.gestiondeportiva.proyectoGestion.DTOs.*;
+import com.gestiondeportiva.proyectoGestion.Dominio.*;
+import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import com.gestiondeportiva.proyectoGestion.Seguridad.JwtGenerator;
-import org.apache.coyote.Response;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -19,7 +14,8 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Collections;
+import javax.swing.text.html.Option;
+import java.util.*;
 
 @RestController
 @RequestMapping("/auth/")
@@ -42,7 +38,7 @@ public class ControladorAuth {
     }
 
     @PostMapping("registrarCajero")
-    public ResponseEntity<String> registrarCajero(@RequestBody DtoRegistro dtoRegistro){
+    public ResponseEntity<String> registrarCajero(@RequestBody RegistroDTO dtoRegistro){
         if (usuarioRepositorio.existsByUsername(dtoRegistro.getUsername())){
             return new ResponseEntity<>("El usuario ya existe.", HttpStatus.BAD_REQUEST);
         }
@@ -56,7 +52,7 @@ public class ControladorAuth {
     }
 
     @PostMapping("registrarAdmin")
-    public ResponseEntity<String> registrarAdmin(@RequestBody DtoRegistro dtoRegistro){
+    public ResponseEntity<String> registrarAdmin(@RequestBody RegistroDTO dtoRegistro){
         if (usuarioRepositorio.existsByUsername(dtoRegistro.getUsername())){
             return new ResponseEntity<>("El usuario ya existe.", HttpStatus.BAD_REQUEST);
         }
@@ -70,10 +66,18 @@ public class ControladorAuth {
     }
 
     @PostMapping("login")
-    public ResponseEntity<DtoAuthRespuesta> login(@RequestBody DtoLogin dtoLogin){
+    public ResponseEntity<AuthResponseDTO> login(@RequestBody LoginDTO dtoLogin){
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dtoLogin.getUsername(),dtoLogin.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
+        List<String> roles = new ArrayList<>();
+        Optional<Usuario> u = usuarioRepositorio.findByUsername(dtoLogin.getUsername());
+        if(u.isPresent()){
+            for (Rol r : u.get().getRoles()) {
+                roles.add(r.getNombre());
+            }
+        }
         String token = jwtGenerator.generateToken(authentication);
-        return new ResponseEntity<>(new DtoAuthRespuesta(token),HttpStatus.OK);
+
+        return new ResponseEntity<>(new AuthResponseDTO(token,roles, dtoLogin.getUsername()),HttpStatus.OK);
     }
 }

@@ -6,10 +6,7 @@ import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
 import com.gestiondeportiva.proyectoGestion.Mappers.AlumnoMapper;
 import com.gestiondeportiva.proyectoGestion.Mappers.CuotaMensualMapper;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IAlumnoRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.ICuotaMensualRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IDisciplinaRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IInscripcionRepositorio;
+import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,14 +21,15 @@ public class ServicioCuotaMensual {
     private final IAlumnoRepositorio alumnoRepositorio;
     private final IDisciplinaRepositorio disciplinaRepositorio;
     private final IInscripcionRepositorio inscripcionRepositorio;
+    private final IPagoDeCuotaRepositorio pagoDeCuotaRepositorio;
 
     @Autowired
-    public ServicioCuotaMensual(ICuotaMensualRepositorio cuotaMensualRepositorio, IAlumnoRepositorio alumnoRepositorio, IDisciplinaRepositorio disciplinaRepositorio,IInscripcionRepositorio inscripcionRepositorio) {
+    public ServicioCuotaMensual(ICuotaMensualRepositorio cuotaMensualRepositorio, IAlumnoRepositorio alumnoRepositorio, IDisciplinaRepositorio disciplinaRepositorio,IInscripcionRepositorio inscripcionRepositorio,IPagoDeCuotaRepositorio pagoDeCuotaRepositorio) {
         this.cuotaMensualRepositorio = cuotaMensualRepositorio;
         this.alumnoRepositorio = alumnoRepositorio;
         this.disciplinaRepositorio = disciplinaRepositorio;
         this.inscripcionRepositorio = inscripcionRepositorio;
-
+        this.pagoDeCuotaRepositorio = pagoDeCuotaRepositorio;
     }
 
     public CuotaMensualDTO createOrUpdate(CuotaMensualDTO cm){
@@ -51,7 +49,11 @@ public class ServicioCuotaMensual {
         if (i.isPresent()) {
             nuevaCuota.setInscripcion(i.get());
         }
-
+        Optional<PagoDeCuota> pdc;
+        if (cm.getPdc()!=null) {
+            pdc = pagoDeCuotaRepositorio.findById(cm.getPdc().get().getNroPago());
+            nuevaCuota.setPdc(pdc.get());
+        }
         return CuotaMensualMapper.entityToDTO(cuotaMensualRepositorio.save(nuevaCuota));
     }
 

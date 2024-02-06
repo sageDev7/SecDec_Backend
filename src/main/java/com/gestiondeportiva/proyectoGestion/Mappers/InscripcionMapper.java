@@ -11,8 +11,10 @@ public class InscripcionMapper {
         iDto.setFecInsc(i.getFecInsc());
         iDto.setFecVenc(i.getFecVenc());
         iDto.setImporteUnico(i.getImporteUnico());
+        iDto.setImporteCuotas(i.getDisciplina().getImporteCuota());
         iDto.setTipoInscr(i.getTipoInscr());
         iDto.setAlumno(i.getAlumno().getId_a());
+        iDto.setAlumnoNombre(i.getAlumno().getNomyApe());
         iDto.setDisciplinaNombre(i.getDisciplina().getNombre());
         iDto.setDisciplina(i.getDisciplina().getId_d());
         if(i.getUsuario()!=null)

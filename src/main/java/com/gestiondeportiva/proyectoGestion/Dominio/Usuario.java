@@ -1,6 +1,5 @@
 package com.gestiondeportiva.proyectoGestion.Dominio;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -29,4 +28,8 @@ public class Usuario {
             joinColumns = @JoinColumn(name = "id_u"),
             inverseJoinColumns = @JoinColumn(name = "id_r"))
     private List<Rol> roles = new ArrayList<>();
+
+    public Usuario (int id_u){
+        this.id_u = id_u;
+    }
 }

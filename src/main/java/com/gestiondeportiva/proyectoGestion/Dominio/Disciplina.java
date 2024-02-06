@@ -23,9 +23,9 @@ public class Disciplina {
     private float importe;
     @Column(name = "dimportecuota")
     private float importeCuota;
-    @OneToMany(mappedBy = "disciplina")
+    @OneToMany(mappedBy = "disciplina",cascade = CascadeType.ALL)
     private List<Inscripcion> inscripciones = new ArrayList<>();
-    @OneToMany(mappedBy = "disciplina")
+    @OneToMany(mappedBy = "disciplina",cascade = CascadeType.ALL)
     private List<CuotaMensual> cuotasMensuales = new ArrayList<>();
     @ManyToMany(cascade = CascadeType.PERSIST)
     @JoinTable(

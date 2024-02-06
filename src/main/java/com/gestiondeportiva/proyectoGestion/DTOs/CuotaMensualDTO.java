@@ -4,6 +4,8 @@ import com.gestiondeportiva.proyectoGestion.Dominio.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.Optional;
+
 @Data
 @NoArgsConstructor
 public class CuotaMensualDTO {
@@ -11,5 +13,5 @@ public class CuotaMensualDTO {
     private float importeCuota;
     private Integer alumno;
     private Integer disciplina;
-    private PagoDeCuota pdc;
+    private Optional<PagoDeCuotaDTO> pdc;
 }
