@@ -1,7 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.PagoDeCuotaDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.PagoDeCuota;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioPagoDeCuota;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -54,6 +53,4 @@ public class ControladorPagoDeCuota {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    // Otros métodos según sea necesario
 }

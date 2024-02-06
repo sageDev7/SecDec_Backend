@@ -22,6 +22,5 @@ public class InscripcionDTO {
     private String disciplinaNombre;
     private Integer disciplina;
     private String usuarioNombre;
-    private Integer usuario;
     private List<CuotaMensualDTO> cuotasMensuales = new ArrayList<>();
 }

@@ -9,9 +9,4 @@ import java.util.*;
 @Repository
 public interface IAlumnoRepositorio extends JpaRepository<Alumno,Integer>{
 
-    // Orden ascendente por nombre
-    List<Alumno> findAllByOrderByNomyApeAsc();
-
-    // Orden descendente por nombre
-    List<Alumno> findAllByOrderByNomyApeDesc();
 }

@@ -32,30 +32,6 @@ public class InscripcionMapper {
         i.setFecVenc(iDto.getFecVenc());
         i.setImporteUnico(iDto.getImporteUnico());
         i.setTipoInscr(iDto.getTipoInscr());
-
-        /*
-        if (iDto.getAlumno() != null) {
-            Alumno alumno = new Alumno();
-            alumno.setId_a(iDto.getAlumno());
-            i.setAlumno(alumno);
-        }
-
-        if (iDto.getDisciplina() != null) {
-            Disciplina disciplina = new Disciplina();
-            disciplina.setId_d(iDto.getDisciplina());
-            i.setDisciplina(disciplina);
-        }
-
-        if (iDto.getUsuario() != null) {
-            Usuario usuario = new Usuario();
-            usuario.setId_u(iDto.getUsuario());
-            i.setUsuario(usuario);
-        }
-
-        for (CuotaMensualDTO cmDto : iDto.getCuotasMensuales()) {
-            i.getCuotasMensuales().add(CuotaMensualMapper.DTOToEntity(cmDto));
-        }
-         */
         return i;
     }
 

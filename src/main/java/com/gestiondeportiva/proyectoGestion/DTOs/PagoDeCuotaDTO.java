@@ -1,6 +1,5 @@
 package com.gestiondeportiva.proyectoGestion.DTOs;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -14,6 +13,5 @@ public class PagoDeCuotaDTO {
     private Date fecha;
     private Time hora;
     private float importe;
-    private Integer usuario;
     private String usuarioNombre;
 }

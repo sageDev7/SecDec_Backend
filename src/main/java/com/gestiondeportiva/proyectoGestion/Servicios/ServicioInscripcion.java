@@ -1,12 +1,8 @@
 package com.gestiondeportiva.proyectoGestion.Servicios;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.CuotaMensualDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.DisciplinaDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
+import com.gestiondeportiva.proyectoGestion.DTOs.*;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-import com.gestiondeportiva.proyectoGestion.Mappers.DisciplinaMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.InscripcionMapper;
+import com.gestiondeportiva.proyectoGestion.Mappers.*;
 import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -53,7 +49,7 @@ public class ServicioInscripcion {
             nuevaInscripcion.setDisciplina(d.get());
         }
 
-        Optional<Usuario> u = usuarioRepositorio.findById(i.getUsuario());
+        Optional<Usuario> u = usuarioRepositorio.findByUsername(i.getUsuarioNombre());
         if (u.isPresent()) {
             nuevaInscripcion.setUsuario(u.get());
         }
@@ -77,5 +73,4 @@ public class ServicioInscripcion {
         inscripcionRepositorio.deleteById(id_i);
     }
 
-    // Otros métodos según sea necesario
 }

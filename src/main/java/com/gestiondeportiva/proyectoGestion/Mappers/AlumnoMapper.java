@@ -1,12 +1,7 @@
 package com.gestiondeportiva.proyectoGestion.Mappers;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.AlumnoDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.CuotaMensualDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-
-import java.sql.Date;
-import java.util.List;
 
 public class AlumnoMapper {
 
@@ -47,21 +42,7 @@ public class AlumnoMapper {
         a.setTipoAlumno(aDto.getTipoAlumno());
         a.setTipoSeguro(aDto.getTipoSeguro());
 
-        /*
-        for (ClaveCuota cc : aDto.getCuotasMensuales()) {
-            CuotaMensual cm = new CuotaMensual();  // Nueva instancia en cada iteración
-            cm.setClaveCuota(cc);
-            cm.getAlumno().setId_a(aDto.getId_a());
-            a.getCuotasMensuales().add(cm);
-        }
-
-        for (InscripcionDTO i : aDto.getInscripciones()) {
-            a.getInscripciones().add(InscripcionMapper.DTOToEntity(i));
-        }
-        */
-
         a.setId_a(aDto.getId_a());
-        System.out.println(a.toString());
         return a;
     }
 }

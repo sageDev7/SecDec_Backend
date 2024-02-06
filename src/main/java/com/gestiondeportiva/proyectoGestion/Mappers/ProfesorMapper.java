@@ -1,12 +1,7 @@
 package com.gestiondeportiva.proyectoGestion.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.AlumnoDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.DisciplinaDTO;
 import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-
-import java.sql.Date;
-import java.util.List;
 
 public class ProfesorMapper {
 
@@ -41,15 +36,6 @@ public class ProfesorMapper {
         p.setSexo(pDto.getSexo());
         p.setObservaciones(pDto.getObservaciones());
         p.setFecIng(pDto.getFecIng());
-
-        /*
-        for (Integer id_d : pDto.getDisciplinas()) {
-            Disciplina disciplina = new Disciplina();
-            disciplina.setId_d(id_d);
-            p.getDisciplinas().add(disciplina);
-        }
-         */
-
         p.setId_p(pDto.getId_p());
         return p;
     }

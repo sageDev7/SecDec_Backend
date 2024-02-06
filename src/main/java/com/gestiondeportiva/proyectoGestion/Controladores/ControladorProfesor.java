@@ -1,8 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.Disciplina;
-import com.gestiondeportiva.proyectoGestion.Dominio.Profesor;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioDisciplina;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioProfesor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -58,6 +56,4 @@ public class ControladorProfesor {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    // Otros métodos según sea necesario
 }

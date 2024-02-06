@@ -1,14 +1,9 @@
 package com.gestiondeportiva.proyectoGestion.Servicios;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.PagoDeCuotaDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.RolDTO;
+import com.gestiondeportiva.proyectoGestion.DTOs.*;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-import com.gestiondeportiva.proyectoGestion.Mappers.InscripcionMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.PagoDeCuotaMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.UsuarioMapper;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IPagoDeCuotaRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IUsuarioRepositorio;
+import com.gestiondeportiva.proyectoGestion.Mappers.*;
+import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,7 +26,7 @@ public class ServicioPagoDeCuota {
     public PagoDeCuotaDTO createOrUpdate(PagoDeCuotaDTO pdc){
         PagoDeCuota nuevoPago = PagoDeCuotaMapper.DTOToEntity(pdc);
 
-        Optional<Usuario> u = usuarioRepositorio.findById(pdc.getUsuario());
+        Optional<Usuario> u = usuarioRepositorio.findByUsername(pdc.getUsuarioNombre());
         if (u.isPresent()) {
             nuevoPago.setUsuario(u.get());
         }
@@ -55,5 +50,4 @@ public class ServicioPagoDeCuota {
         pagoDeCuotaRepositorio.deleteById(id_pdc);
     }
 
-    // Otros métodos según sea necesario
 }

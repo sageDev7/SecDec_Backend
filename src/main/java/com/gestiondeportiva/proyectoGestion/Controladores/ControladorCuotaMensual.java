@@ -2,7 +2,6 @@ package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.CuotaMensualDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.ClaveCuota;
-import com.gestiondeportiva.proyectoGestion.Dominio.CuotaMensual;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioCuotaMensual;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -60,5 +59,4 @@ public class ControladorCuotaMensual {
         }
     }
 
-    // Otros métodos según sea necesario
 }

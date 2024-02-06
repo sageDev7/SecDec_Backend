@@ -13,8 +13,6 @@ import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import javax.swing.text.html.Option;
 import java.util.*;
 
 @RestController
@@ -70,14 +68,16 @@ public class ControladorAuth {
         Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(dtoLogin.getUsername(),dtoLogin.getPassword()));
         SecurityContextHolder.getContext().setAuthentication(authentication);
         List<String> roles = new ArrayList<>();
+        Integer id_u = -1;
         Optional<Usuario> u = usuarioRepositorio.findByUsername(dtoLogin.getUsername());
         if(u.isPresent()){
             for (Rol r : u.get().getRoles()) {
                 roles.add(r.getNombre());
             }
+            id_u = u.get().getId_u();
         }
         String token = jwtGenerator.generateToken(authentication);
 
-        return new ResponseEntity<>(new AuthResponseDTO(token,roles, dtoLogin.getUsername()),HttpStatus.OK);
+        return new ResponseEntity<>(new AuthResponseDTO(token,roles, dtoLogin.getUsername(),id_u),HttpStatus.OK);
     }
 }

@@ -1,16 +1,9 @@
 package com.gestiondeportiva.proyectoGestion.Servicios;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.RolDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.UsuarioDTO;
+import com.gestiondeportiva.proyectoGestion.DTOs.*;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-import com.gestiondeportiva.proyectoGestion.Mappers.ProfesorMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.UsuarioMapper;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IInscripcionRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IPagoDeCuotaRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IRolRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IUsuarioRepositorio;
+import com.gestiondeportiva.proyectoGestion.Mappers.*;
+import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -74,5 +67,4 @@ public class ServicioUsuario {
         usuarioRepositorio.deleteById(id_o);
     }
 
-    // Otros métodos según sea necesario
 }

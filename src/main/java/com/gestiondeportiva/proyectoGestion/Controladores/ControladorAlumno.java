@@ -1,9 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.AlumnoDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.Alumno;
-import com.gestiondeportiva.proyectoGestion.Dominio.CuotaMensual;
-import com.gestiondeportiva.proyectoGestion.Dominio.Inscripcion;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioAlumno;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -12,7 +9,6 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
 import javax.validation.constraints.Min;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -58,8 +54,6 @@ public class ControladorAlumno {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    // Otros métodos según sea necesario
 
     @ExceptionHandler(Exception.class)
     public ResponseEntity<String> handleException(Exception e) {

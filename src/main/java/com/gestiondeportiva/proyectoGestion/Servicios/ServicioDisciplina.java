@@ -1,18 +1,9 @@
 package com.gestiondeportiva.proyectoGestion.Servicios;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.AlumnoDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.DisciplinaDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
+import com.gestiondeportiva.proyectoGestion.DTOs.*;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
-import com.gestiondeportiva.proyectoGestion.Mappers.AlumnoMapper;
 import com.gestiondeportiva.proyectoGestion.Mappers.DisciplinaMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.InscripcionMapper;
-import com.gestiondeportiva.proyectoGestion.Mappers.ProfesorMapper;
-import com.gestiondeportiva.proyectoGestion.Persistencia.ICuotaMensualRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IDisciplinaRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IInscripcionRepositorio;
-import com.gestiondeportiva.proyectoGestion.Persistencia.IProfesorRepositorio;
+import com.gestiondeportiva.proyectoGestion.Persistencia.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -78,5 +69,4 @@ public class ServicioDisciplina {
         disciplinaRepositorio.deleteById(id_d);
     }
 
-    // Otros métodos según sea necesario
 }

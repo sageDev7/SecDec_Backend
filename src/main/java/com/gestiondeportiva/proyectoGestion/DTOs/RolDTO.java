@@ -1,8 +1,5 @@
 package com.gestiondeportiva.proyectoGestion.DTOs;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

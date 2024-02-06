@@ -1,7 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.Inscripcion;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioInscripcion;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -57,5 +56,4 @@ public class ControladorInscripcion {
         }
     }
 
-    // Otros métodos según sea necesario
 }

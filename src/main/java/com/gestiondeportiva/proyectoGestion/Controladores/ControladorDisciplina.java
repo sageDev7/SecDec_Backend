@@ -1,8 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.DisciplinaDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.*;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioDisciplina;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioProfesor;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -11,7 +9,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import javax.validation.Valid;
-import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -34,28 +31,6 @@ public class ControladorDisciplina {
         DisciplinaDTO nuevaDisciplina = servicioDisciplina.createOrUpdate(disciplina);
         return new ResponseEntity<>(nuevaDisciplina, HttpStatus.CREATED);
     }
-
-    /*
-    @PostMapping("/agregarProfesor/{id_d}/{id_p}")
-    public ResponseEntity<ProfesorDTO> addProfesor(@PathVariable Integer id_d, @PathVariable Integer id_p){
-        DisciplinaDTO nuevaDisciplina = servicioDisciplina.selectById(id_d);
-        ProfesorDTO nuevoProfesor = servicioProfesor.selectById(id_p);
-        nuevaDisciplina.getProfesores().add(nuevoProfesor);
-        nuevoProfesor.getDisciplinas().add(nuevaDisciplina.getId_d());
-        nuevoProfesor = servicioProfesor.createOrUpdate(nuevoProfesor);
-        return new ResponseEntity<>(nuevoProfesor, HttpStatus.CREATED);
-    }
-
-    @PostMapping("/eliminarProfesor/{id_d}/{id_p}")
-    public ResponseEntity<ProfesorDTO> deleteProfesor(@PathVariable Integer id_d, @PathVariable Integer id_p){
-        DisciplinaDTO nuevaDisciplina = servicioDisciplina.selectById(id_d);
-        ProfesorDTO nuevoProfesor = servicioProfesor.selectById(id_p);
-        nuevaDisciplina.getProfesores().remove(nuevoProfesor);
-        nuevoProfesor.getDisciplinas().remove(nuevaDisciplina.getId_d());
-        nuevoProfesor = servicioProfesor.createOrUpdate(nuevoProfesor);
-        return new ResponseEntity<>(nuevoProfesor, HttpStatus.CREATED);
-    }
-    */
 
     @GetMapping("/ver")
     public List<DisciplinaDTO> getAllDisciplinas() {
@@ -82,6 +57,4 @@ public class ControladorDisciplina {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    // Otros métodos según sea necesario
 }

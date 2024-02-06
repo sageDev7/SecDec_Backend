@@ -1,10 +1,5 @@
 package com.gestiondeportiva.proyectoGestion.DTOs;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.gestiondeportiva.proyectoGestion.Dominio.Inscripcion;
-import com.gestiondeportiva.proyectoGestion.Dominio.PagoDeCuota;
-import com.gestiondeportiva.proyectoGestion.Dominio.Rol;
-import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

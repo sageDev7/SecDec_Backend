@@ -10,7 +10,7 @@ public class PagoDeCuotaMapper {
             return null;
         PagoDeCuotaDTO pdcDto = new PagoDeCuotaDTO();
         pdcDto.setNroPago(pdc.getNroPago());
-        pdcDto.setUsuario(pdc.getUsuario().getId_u());
+        pdcDto.setUsuarioNombre(pdc.getUsuario().getUsername());
         pdcDto.setFecha(pdc.getFecha());
         pdcDto.setHora(pdc.getHora());
         pdcDto.setImporte(pdc.getImporte());

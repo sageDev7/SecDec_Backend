@@ -64,5 +64,4 @@ public class ServicioAlumno {
         alumnoRepositorio.deleteById(id_a);
     }
 
-    // Otros métodos según sea necesario
 }

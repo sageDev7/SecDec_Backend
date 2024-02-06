@@ -1,7 +1,6 @@
 package com.gestiondeportiva.proyectoGestion.Controladores;
 
 import com.gestiondeportiva.proyectoGestion.DTOs.UsuarioDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
 import com.gestiondeportiva.proyectoGestion.Servicios.ServicioUsuario;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -55,6 +54,4 @@ public class ControladorUsuario {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-
-    // Otros métodos según sea necesario
 }

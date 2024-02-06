@@ -1,7 +1,5 @@
 package com.gestiondeportiva.proyectoGestion.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.InscripcionDTO;
-import com.gestiondeportiva.proyectoGestion.DTOs.ProfesorDTO;
 import com.gestiondeportiva.proyectoGestion.DTOs.UsuarioDTO;
 import com.gestiondeportiva.proyectoGestion.Dominio.*;
 
@@ -26,14 +24,6 @@ public class UsuarioMapper {
         Usuario u = new Usuario();
         u.setId_u(uDto.getId_u());
         u.setUsername(uDto.getUsername());
-
-        /*
-        for (Integer id_d : pDto.getDisciplinas()) {
-            Disciplina disciplina = new Disciplina();
-            disciplina.setId_d(id_d);
-            p.getDisciplinas().add(disciplina);
-        }
-         */
         return u;
     }
 }

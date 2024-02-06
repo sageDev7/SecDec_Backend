@@ -73,5 +73,4 @@ public class ServicioCuotaMensual {
         cuotaMensualRepositorio.deleteById(cc);
     }
 
-    // Otros métodos según sea necesario
 }
