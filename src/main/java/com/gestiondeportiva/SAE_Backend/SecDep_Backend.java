@@ -5,9 +5,9 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 
 @SpringBootApplication
-public class SAE_Backend {
+public class SecDep_Backend {
 
 	public static void main(String[] args) {
-		SpringApplication.run(SAE_Backend.class, args);
+		SpringApplication.run(SecDep_Backend.class, args);
 	}
 }

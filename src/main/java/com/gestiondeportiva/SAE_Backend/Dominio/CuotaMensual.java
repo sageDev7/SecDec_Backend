@@ -1,6 +1,5 @@
-package com.gestiondeportiva.proyectoGestion.Dominio;
+package com.gestiondeportiva.SAE_Backend.Dominio;
 
-import com.fasterxml.jackson.annotation.*;
 import jakarta.persistence.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;

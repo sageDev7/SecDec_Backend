@@ -1,6 +1,6 @@
-package com.gestiondeportiva.proyectoGestion.Persistencia;
+package com.gestiondeportiva.SAE_Backend.Persistencia;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.Rol;
+import com.gestiondeportiva.SAE_Backend.Dominio.Rol;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

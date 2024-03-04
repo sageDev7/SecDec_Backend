@@ -1,10 +1,8 @@
-package com.gestiondeportiva.proyectoGestion.Persistencia;
+package com.gestiondeportiva.SAE_Backend.Persistencia;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.Alumno;
+import com.gestiondeportiva.SAE_Backend.Dominio.Alumno;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
-
-import java.util.*;
 
 @Repository
 public interface IAlumnoRepositorio extends JpaRepository<Alumno,Integer>{

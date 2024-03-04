@@ -1,9 +1,5 @@
-package com.gestiondeportiva.proyectoGestion.DTOs;
+package com.gestiondeportiva.SAE_Backend.DTOs;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.Disciplina;
-import jakarta.persistence.CascadeType;
-import jakarta.persistence.Column;
-import jakarta.persistence.ManyToMany;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

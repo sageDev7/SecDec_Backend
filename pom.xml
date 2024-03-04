@@ -9,10 +9,10 @@
 		<relativePath/> <!-- lookup parent from repository -->
 	</parent>
 	<groupId>com.gestiondeportiva</groupId>
-	<artifactId>proyectoGestion</artifactId>
+	<artifactId>SecDep_Backend</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>InstitucionDeportiva</name>
-	<description>Proyecto para gestionar una institución deportiva</description>
+	<name>Secretaría de Deportes</name>
+	<description>App para gestionar una secretaría de deportes para estudiantes universitarios</description>
 	<properties>
 		<java.version>17</java.version>
 		<spring-security.version>6.0.5</spring-security.version>
@@ -68,6 +68,17 @@
 			<groupId>mysql</groupId>
 			<artifactId>mysql-connector-java</artifactId>
 			<version>8.0.32</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-boot-starter</artifactId>
+			<version>3.0.0</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<version>4.0.1</version>
+			<scope>provided</scope>
 		</dependency>
 	</dependencies>
 

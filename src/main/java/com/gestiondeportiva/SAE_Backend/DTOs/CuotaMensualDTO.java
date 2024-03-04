@@ -1,6 +1,6 @@
-package com.gestiondeportiva.proyectoGestion.DTOs;
+package com.gestiondeportiva.SAE_Backend.DTOs;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.*;
+import com.gestiondeportiva.SAE_Backend.Dominio.*;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

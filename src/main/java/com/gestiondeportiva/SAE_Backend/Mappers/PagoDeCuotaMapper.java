@@ -1,7 +1,7 @@
-package com.gestiondeportiva.proyectoGestion.Mappers;
+package com.gestiondeportiva.SAE_Backend.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.PagoDeCuotaDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.PagoDeCuota;
+import com.gestiondeportiva.SAE_Backend.DTOs.PagoDeCuotaDTO;
+import com.gestiondeportiva.SAE_Backend.Dominio.PagoDeCuota;
 
 
 public class PagoDeCuotaMapper {

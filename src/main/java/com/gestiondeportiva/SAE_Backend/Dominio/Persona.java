@@ -1,5 +1,5 @@
 
-package com.gestiondeportiva.proyectoGestion.Dominio;
+package com.gestiondeportiva.SAE_Backend.Dominio;
 
 import jakarta.persistence.MappedSuperclass;
 import lombok.AllArgsConstructor;

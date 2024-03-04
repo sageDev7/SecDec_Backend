@@ -1,9 +1,8 @@
-package com.gestiondeportiva.proyectoGestion.Seguridad;
+package com.gestiondeportiva.SAE_Backend.Seguridad;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
@@ -17,8 +16,6 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
-import org.springframework.web.servlet.config.annotation.CorsRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
 import java.util.Arrays;
 
@@ -33,24 +30,24 @@ public class SecurityConfig {
     }
 
     @Bean
-    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception{
+    AuthenticationManager authenticationManager(AuthenticationConfiguration authenticationConfiguration) throws Exception {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
     @Bean
-    PasswordEncoder passwordEncoder (){
+    PasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
     @Bean
-    JwtAuthenticationFilter jwtAuthenticationFilter(){
+    JwtAuthenticationFilter jwtAuthenticationFilter() {
         return new JwtAuthenticationFilter();
     }
 
-    //permisos
+    // Configuración de permisos y roles
     @Bean
-    SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
-        http.cors();
+    SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
+        http.cors(); // Configuración CORS
         http.csrf().disable()
                 .exceptionHandling()
                 .authenticationEntryPoint(jwtAuthenticationEntryPoint)
@@ -59,44 +56,39 @@ public class SecurityConfig {
                 .sessionCreationPolicy(SessionCreationPolicy.STATELESS)
                 .and()
                 .authorizeHttpRequests()
+
+                // Configuración de permisos para endpoints específicos
                 .requestMatchers("/auth/**").permitAll()
-
-                .requestMatchers(HttpMethod.POST,"/alumnos/crear").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.DELETE,"/alumnos/eliminar/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.POST,"/cuotas-mensuales/crear").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.DELETE,"/cuotas-mensuales/eliminar/**").hasAnyAuthority("admin", "cajero")
-
-                .requestMatchers(HttpMethod.POST,"/disciplinas/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/disciplinas/eliminar/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.POST,"/inscripciones/crear").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.DELETE,"/inscripciones/eliminar/**").hasAnyAuthority("admin", "cajero")
-
-                .requestMatchers(HttpMethod.POST,"/pagos-de-cuota/crear").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.DELETE,"/pagos-de-cuota/eliminar/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.POST,"/profesores/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/profesores/eliminar/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.POST,"/usuarios/crear").hasAuthority("admin")
-                .requestMatchers(HttpMethod.DELETE,"/usuarios/eliminar/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.GET,"/usuarios").hasAuthority("admin")
-                .requestMatchers(HttpMethod.GET,"/usuarios/ver").hasAuthority("admin")
-                .requestMatchers(HttpMethod.GET,"/usuarios/verId/**").hasAuthority("admin")
-
-                .requestMatchers(HttpMethod.GET,"/alumnos").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.GET,"/alumnos/ver").hasAnyAuthority("admin", "cajero")
-                .requestMatchers(HttpMethod.GET,"/alumnos/verId/**").hasAnyAuthority("admin", "cajero")
-
+                .requestMatchers(HttpMethod.POST, "/alumnos/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE, "/alumnos/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST, "/cuotas-mensuales/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE, "/cuotas-mensuales/eliminar/**").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.POST, "/disciplinas/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.DELETE, "/disciplinas/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST, "/inscripciones/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE, "/inscripciones/eliminar/**").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.POST, "/pagos-de-cuota/crear").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.DELETE, "/pagos-de-cuota/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST, "/profesores/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.DELETE, "/profesores/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.POST, "/usuarios/crear").hasAuthority("admin")
+                .requestMatchers(HttpMethod.DELETE, "/usuarios/eliminar/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.GET, "/usuarios").hasAuthority("admin")
+                .requestMatchers(HttpMethod.GET, "/usuarios/ver").hasAuthority("admin")
+                .requestMatchers(HttpMethod.GET, "/usuarios/verId/**").hasAuthority("admin")
+                .requestMatchers(HttpMethod.GET, "/alumnos").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.GET, "/alumnos/ver").hasAnyAuthority("admin", "cajero")
+                .requestMatchers(HttpMethod.GET, "/alumnos/verId/**").hasAnyAuthority("admin", "cajero")
                 .anyRequest().authenticated()
                 .and()
                 .httpBasic();
+
+        // Agregar el filtro de autenticación JWT antes del filtro de usuario y contraseña
         http.addFilterBefore(jwtAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class);
         return http.build();
     }
 
+    // Configuración CORS para permitir solicitudes desde el frontend
     @Bean
     public CorsConfigurationSource corsConfigurationSource() {
         CorsConfiguration configuration = new CorsConfiguration();
@@ -110,5 +102,4 @@ public class SecurityConfig {
 
         return source;
     }
-
 }

@@ -1,8 +1,8 @@
-package com.gestiondeportiva.proyectoGestion.DTOs;
+package com.gestiondeportiva.SAE_Backend.DTOs;
 
-import com.gestiondeportiva.proyectoGestion.Dominio.ClaveCuota;
-import com.gestiondeportiva.proyectoGestion.Dominio.TipoAlumno;
-import com.gestiondeportiva.proyectoGestion.Dominio.TipoSeguro;
+import com.gestiondeportiva.SAE_Backend.Dominio.ClaveCuota;
+import com.gestiondeportiva.SAE_Backend.Dominio.TipoAlumno;
+import com.gestiondeportiva.SAE_Backend.Dominio.TipoSeguro;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 

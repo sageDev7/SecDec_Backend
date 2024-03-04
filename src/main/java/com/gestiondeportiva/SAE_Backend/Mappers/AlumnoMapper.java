@@ -1,7 +1,7 @@
-package com.gestiondeportiva.proyectoGestion.Mappers;
+package com.gestiondeportiva.SAE_Backend.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.AlumnoDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.*;
+import com.gestiondeportiva.SAE_Backend.DTOs.AlumnoDTO;
+import com.gestiondeportiva.SAE_Backend.Dominio.*;
 
 public class AlumnoMapper {
 

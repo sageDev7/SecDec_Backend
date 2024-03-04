@@ -1,8 +1,8 @@
-package com.gestiondeportiva.proyectoGestion.Mappers;
+package com.gestiondeportiva.SAE_Backend.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.RolDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.Rol;
-import com.gestiondeportiva.proyectoGestion.Dominio.Usuario;
+import com.gestiondeportiva.SAE_Backend.DTOs.RolDTO;
+import com.gestiondeportiva.SAE_Backend.Dominio.Rol;
+import com.gestiondeportiva.SAE_Backend.Dominio.Usuario;
 
 public class RolMapper {
     public static RolDTO entityToDTO(Rol r) {

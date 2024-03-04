@@ -1,7 +1,7 @@
-package com.gestiondeportiva.proyectoGestion.Mappers;
+package com.gestiondeportiva.SAE_Backend.Mappers;
 
-import com.gestiondeportiva.proyectoGestion.DTOs.CuotaMensualDTO;
-import com.gestiondeportiva.proyectoGestion.Dominio.*;
+import com.gestiondeportiva.SAE_Backend.DTOs.CuotaMensualDTO;
+import com.gestiondeportiva.SAE_Backend.Dominio.*;
 
 import java.util.Optional;
 

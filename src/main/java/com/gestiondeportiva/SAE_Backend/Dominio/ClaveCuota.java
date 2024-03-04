@@ -1,4 +1,4 @@
-package com.gestiondeportiva.proyectoGestion.Dominio;
+package com.gestiondeportiva.SAE_Backend.Dominio;
 
 import jakarta.persistence.Embeddable;
 import lombok.AllArgsConstructor;

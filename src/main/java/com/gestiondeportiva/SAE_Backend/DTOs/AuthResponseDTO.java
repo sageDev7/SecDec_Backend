@@ -1,4 +1,4 @@
-package com.gestiondeportiva.proyectoGestion.DTOs;
+package com.gestiondeportiva.SAE_Backend.DTOs;
 
 import lombok.Data;
 import java.util.*;
